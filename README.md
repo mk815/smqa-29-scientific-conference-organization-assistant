@@ -147,7 +147,22 @@
           - In the PIT Summary tab, Click on the default link. You'll see the mutation coverage results for the Session.java file.
   4. Specification based testing
      - **Steps**
-       1. 
+       1. Check Code Coverage:
+          - Right-click on the SpecificationBasedTesting.java test class in the Package Explorer.
+          - Select "Coverage As" -> "JUnit Test."
+          - In the Coverage tab, analyze the results to see the code coverage specifically related to the Speaker.java file.
   5. Random based testing
-     -
-
+     - **Steps**
+       1. Setup Randoop:
+          - Make sure you have Randoop installed and configured properly.
+          - Set the environment variable RANDOOP_JAR to the path where Randoop's JAR file is located.
+       2. Generate Random Tests:
+          - Open the command prompt or terminal.
+       3. Execute Randoop:
+          - Random based testing primarily focussed on Attendee.java class.
+          - Use the following command to generate random tests for the Attendee class.
+          - java -classpath <path-to-SMQA-Scientific-Conference-Project>\;%RANDOOP_JAR% randoop.main.Main gentests --testclass=Attendee
+       5. Review Generated Tests:
+          - After Randoop completes its execution, review the generated tests in RegressionTest0.java and RegressionTest.java files.
+          - The tests created by Randoop will cover various scenarios based on random inputs.
+          - Output will be displayed.
