@@ -16,31 +16,43 @@
   - Go to project -> properties -> Java Build Path -> Libraries -> Classpath -> Add External JARs -> Apply
 # Execution
   1. SG2-2: Create user Organizer
+     - you have to select the option -> 2. Signup as Organizer
      - you have to input organizer username and password
      - organizer's username and password will be stored in organizer_credentials.txt file in the format of username:password
   2. SG2-4: Create user Speaker
+     - you have to select the options -> 1. Login as Organizer -> 2. Add Speaker
      - you have to input speaker username and password
      - speaker's username and password will be stored in speakers.txt file in the format of username:password
   3. SG2-5: Create user Attendee
+     - you have to select the options -> 1. Login as Organizer -> 1. Add Attendee
      - you have to input attendee username and password
      - attendee's username and password will be stored in the attendees.txt file in the format of username:password
   4. SG2-13: Send Invitation to Sponsor
-     -  you have to input sponser email-id and message
-     -  sponser will get email from 'manikantakallakuri143@gmail.com'
+     - you have to select the options -> 1. Login as Organizer -> 8. Send invitation to sponser
+     - you have to input sponser email-id and message
+     - sponser will get email from 'manikantakallakuri143@gmail.com'
   5. SG2-6: Able to track Speakers
-     - list the all number of speaker's username along with count will be displayed
+      - you have to select the options -> 1. Login as Organizer -> 3. Track Speakers
+      - list the all number of speaker's username along with count will be displayed
   6. SG2-3: Able to track Attendees
-     - list the all number of attendee's username along with count will be displayed
+      - you have to select the options -> 1. Login as Organizer -> 4. Track Attendees
+      - list the all number of attendee's username along with count will be displayed
   7. SG2-8: Able to delete Speaker
+      you have to select the options -> 1. Login as Organizer -> 6. Delete Speaker
      - you have to input speaker username that you want to delete
   8. SG2-7: Able to delete Attendee
+      - you have to select the options -> 1. Login as Organizer -> 5. Delete Attendee
      - you have to input attendee username that you want to delete
   9. SG2-14: Show Attendees and Speakers
-     - list the all number of speaker's username and attendee's username along with count will be displayed
+      - you have to select the options -> 1. Login as Organizer -> 7. Show all Speakers, Attendees
+      - list the all number of speaker's username and attendee's username along with count will be displayed
   10. SG2-22: Graphical representation of Attendees
+      - - you have to select the options -> 4. Login as Speaker -> 4. Show visualization of no.of attendees
       - a pie chart contains attendees count will be display in a new window
   11. SG2-17: Graphical representation of speakers & Attendees
+      - you have to select the options -> 1. Login as Organizer -> 11. Show Attendees & Speakers count visualization
       - a bar chart contains at attendees count ans speaker count will be displayed in a new window
   12. SG2-16: Send updates to Attendee
+      - you have to select the options -> 1. Login as Organizer -> 10. Send Update to Attendee
       - you have to input attendee email-id and update message
       - attendee will get email from 'manikantakallakuri143@gmail.com'
