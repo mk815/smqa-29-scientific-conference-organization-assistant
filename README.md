@@ -1,6 +1,6 @@
 # Project title
  smqa-29-scientific-conference-organization-assistant
-# Installation
+# Installation & Set up
   To run this project, you need to have Java Development Kit (JDK) version 14.0.2 installed on your machine. You can download and install Java JDK from the official Oracle website.
   eclipseIDE 2023-12 has been used
   
@@ -18,15 +18,15 @@
   1. SG2-2: Create user Organizer
      - you have to select the option -> 2. Signup as Organizer
      - you have to input organizer username and password
-     - organizer's username and password will be stored in organizer_credentials.txt file in the format of username:password
+     - organizer's username and password will be stored in 'organizer_credentials.txt' file in the format of username:password
   2. SG2-4: Create user Speaker
      - you have to select the options -> 1. Login as Organizer -> 2. Add Speaker
      - you have to input speaker username and password
-     - speaker's username and password will be stored in speakers.txt file in the format of username:password
+     - speaker's username and password will be stored in 'speakers.txt' file in the format of username:password
   3. SG2-5: Create user Attendee
      - you have to select the options -> 1. Login as Organizer -> 1. Add Attendee
      - you have to input attendee username and password
-     - attendee's username and password will be stored in the attendees.txt file in the format of username:password
+     - attendee's username and password will be stored in the 'attendees.txt' file in the format of username:password
   4. SG2-13: Send Invitation to Sponsor
      - you have to select the options -> 1. Login as Organizer -> 8. Send invitation to sponser
      - you have to input sponser email-id and message
@@ -56,3 +56,52 @@
       - you have to select the options -> 1. Login as Organizer -> 10. Send Update to Attendee
       - you have to input attendee email-id and update message
       - attendee will get email from 'manikantakallakuri143@gmail.com'
+  13. SG2-18: Upload presentation materials
+      - you have to select the option -> 4. Login as Speaker -> 2. Upload presentation
+      - you have to enter speaker username and password for security purpose
+      - then you have to enter a valid pdf url ends with .pdf for example (https://www.tutorialspoint.com/java/java_tutorial.pdf)
+      - speaker username and pdf url will be stored in 'presentations.txt' file in the format of username:pdfurl
+  14. SG2-19: Update presentation materials
+      - you have to select the option -> 4. Login as Speaker -> 3. Update presentation
+      - then you have to enter a valid pdf url ends with .pdf for example (https://www.tutorialspoint.com/java/java_tutorial.pdf)
+      - pdf url will be updated to corresponding speaker username in 'presentations.txt' file in the format of username:pdfurl
+  15. SG2-9: Send updates to Speakers
+      - you have to select the options -> 1. Login as Organizer -> 9. Send Update to Speaker
+      - you have to input speaker email-id and update message
+      - speaker will get email from 'manikantakallakuri143@gmail.com'
+  16. SG2-15: Authorized presentation
+      - you have to select the option -> 4. Login as Speaker -> 2. Upload presentation
+      - you have to enter speaker username and password for security purpose
+      - then you have to enter a valid pdf url ends with .pdf for example (https://www.tutorialspoint.com/java/java_tutorial.pdf)
+      - speaker username and pdf url will be stored in 'presentations.txt' file in the format of username:pdfurl
+  17. SG2-20: Send session links
+      - you have to select the option -> 1. Login as Organizer -> 12. Send virtual session links to attendees
+      - you have to input joining session link for example(https://meet.google.com/azd-xyhs-ome) and attendee emails in a comma-separated(for example: abc@gmail.com,xyz@gmail.com)
+      - then the attendee's will get session links email from 'manikantakallakuri143@gmail.com'
+  18. SG2-10: Speaker Q&A session
+      - you have to select the option -> 4. Login as Speaker -> 1. simulate q&a session
+      - you have to input presentation title, next if you have presentation materials to submit then type yes -> then you have to enter a valid pdf url ends with .pdf for example 
+        (https://www.tutorialspoint.com/java/java_tutorial.pdf) the presentation pdf will submitted within the same path with the name presentationTitle you've entered, next you have input feedback.
+  19. SG2-11: Attendee Q&A session
+      - you have to select the option -> 3. Login as Attendee -> 1. simulate q&a session
+      - you have to input interests or preferences for sessions (for example 'web') then sessions will be recommended, next you have to input feedback
+  20. SG2-12:  Attendee download presentation
+      - you have to select the option -> 3. Login as Attendee -> 2. Download presentation
+      - you have to input speaker username, then corresponding pdf will be downloaded
+  21. SG2-24: Conduct, View polls
+      - you have to select the option -> 3. Login as Attendee -> 3. Participate in a poll for conducting polls
+      - you have to participate in the poll
+      - you have to select the option -> 1. Login as Organizer -> 16. View Polling results for viewing polls
+      - poll_results.html will be generated within the same folder then you can copy that html file path and paste it in any browser then you can be able to view
+  22. SG2-21: Able to generate reports
+      - you have to select the option -> 1. Login as Organizer -> 14. Generate report contains all users
+      - attendance_report.html file contails attendee's and speaker's information will be generated within the same folder then you can copy that html file path and paste it in any browser then you can be able   
+        to view
+  23. SG2-25: Implement payments
+      - you have to select the option -> 1. Login as Organizer -> 13. Send payment link to attendees
+      - you have to attendee username and attendee email-id and payment type (for example: vip) then payment details will be send to attendee email from 'manikantakallakuri143@gmail.com'
+  24. SG2-23: Digital certificates for attendees
+      - you have to select the option -> 1. Login as Organizer -> 15. Generate participation certificate
+      - you have to input attendee full name
+      - certificate.html will be generated within the same folder then you can copy that html file path and paste it in any browser then you can be able to view
+
