@@ -107,13 +107,47 @@
      
 # Compiling test cases
   1. Statement based testing
-     - 
+     - **Steps:**
+       1. Preparation: Ensure that the organizer_credentials.txt file does not contain the o1111:1234 record. If present, remove it manually before running the test cases.
+       2. Statement-Based Testing for Speaker.java: The test cases of Statement-Based Testing for Speaker.java class can be found in StatementAndBranchbasedMainTest.java.
+       3. JUnit Test Execution:
+          - Right-click on the StatementAndBranchbasedMainTest.java test class in the Package Explorer.
+          - Select "Run As" or "Run Configurations," then choose "JUnit Test" to execute the test cases.
+          - In the JUnit tab, observe the test results to ensure the expected behavior of the Speaker.java class.
+       4. Code Coverage Analysis:
+          - To check code coverage for the Speaker.java class:
+          - Right-click on the StatementAndBranchbasedMainTest.java test class in the Package Explorer.
+          - Select "Coverage As" and then choose "JUnit Test."
+          -In the Coverage tab, examine the code coverage results specifically related to the Speaker.java file.
   2. Branch based testing
-     -
+     - **Steps:**
+       1. Preparation: Ensure that the organizer_credentials.txt file does not contain the o1111:1234 record. If present, remove it manually before running the test cases.
+       2. Branch-Based Testing for Speaker.java: The test cases of Branch-Based Testing for Speaker.java class can be found in StatementAndBranchbasedMainTest.java.
+       3. JUnit Test Execution:
+          - Right-click on the StatementAndBranchbasedMainTest.java test class in the Package Explorer.
+          - Select "Run As" or "Run Configurations," then choose "JUnit Test" to execute the test cases.
+          - In the JUnit tab, observe the test results to ensure the expected behavior of the Speaker.java class.
+       4. Code Coverage Analysis:
+          - To check code coverage for the Speaker.java class:
+          - Right-click on the StatementAndBranchbasedMainTest.java test class in the Package Explorer.
+          - Select "Coverage As" and then choose "JUnit Test."
+          - In the Coverage tab, examine the code coverage results specifically related to the Speaker.java file.
   3. Mutation based testing
-     -
+     - **Steps**
+       1. Prerequisites:
+          - Install Pitclipse Plugin:
+          - Open Eclipse IDE.
+          - Go to "Help" -> "Eclipse Marketplace".
+          - Search for "Pitclipse" and install the plugin.
+          - Restart Eclipse if prompted.
+       2. Run Mutation Tests:
+          - Right-click on the MutationBased.java test class in the Package Explorer.
+          - Choose "Run As" -> "PIT Mutation Test" from the context menu.
+          - Once the mutation testing process completes, Open the PIT Summary tab in Eclipse.
+          - In the PIT Summary tab, Click on the default link. You'll see the mutation coverage results for the Session.java file.
   4. Specification based testing
-     -
+     - **Steps**
+       1. 
   5. Random based testing
      -
 
