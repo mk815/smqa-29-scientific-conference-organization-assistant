@@ -14,7 +14,7 @@
   - These files has been provided in this repository.
   - When using these JAR files in the project, ensure that they are included in your project's classpath or build path so that your code can access the classes and methods provided by these libraries.
   - Go to project -> properties -> Java Build Path -> Libraries -> Classpath -> Add External JARs -> Apply
-# Execution
+# User stories development execution
   1. SG2-2: Create user Organizer
      - you have to select the option -> 2. Signup as Organizer
      - you have to input organizer username and password
@@ -104,4 +104,16 @@
       - you have to select the option -> 1. Login as Organizer -> 15. Generate participation certificate
       - you have to input attendee full name
       - certificate.html will be generated within the same folder then you can copy that html file path and paste it in any browser then you can be able to view
+     
+# Compiling test cases
+  1. Statement based testing
+     - 
+  2. Branch based testing
+     -
+  3. Mutation based testing
+     -
+  4. Specification based testing
+     -
+  5. Random based testing
+     -
 
