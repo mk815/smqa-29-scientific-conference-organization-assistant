@@ -27,6 +27,8 @@ import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 import javax.mail.internet.*;
 import java.io.OutputStream;
+import javax.mail.*;
+import javax.net.*;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
 import java.util.Base64;
@@ -170,30 +172,6 @@ public class Organizer {
         if (organizerCredentials.containsKey(username) && organizerCredentials.get(username).equals(password)) {
             loggedInOrganizer = username;
             System.out.println("Organizer login successful!");
-            return true;
-        } else {
-            System.out.println("Organizer login failed. Incorrect username or password.");
-            return false;
-        }
-    }
-    
-    public boolean mutateAndCheckOriginalLogin(String username, String password) {
-        // Check if the provided username and password match the stored credentials
-        if (organizerCredentials.containsKey(username) && organizerCredentials.get(username).equals(password)) {
-            loggedInOrganizer = username;
-            System.out.println("Organizer login successful!");
-            return true;
-        } else {
-            System.out.println("Organizer login failed. Incorrect username or password.");
-            return false;
-        }
-    }
-
-    public boolean mutateAndCheckMutatedLogin(String username, String password) {
-        // Mutated condition: Reversed logic for login success
-        if (!organizerCredentials.containsKey(username) || !organizerCredentials.get(username).equals(password)) {
-            loggedInOrganizer = username; // Mutation: Assigning username to loggedInOrganizer in the wrong condition
-            System.out.println("Organizer login successful! (This is a mutation)");
             return true;
         } else {
             System.out.println("Organizer login failed. Incorrect username or password.");
@@ -380,119 +358,119 @@ public class Organizer {
     }
 
     public boolean sendInvitationToSponser(String sponserEmail) {
-        try {
-            // send email logic
-            Session newSession = null;
-            Properties systemProperties = System.getProperties();
-            systemProperties.put("mail.smtp.port", "587");
-            systemProperties.put("mail.smtp.auth", "true");
-            systemProperties.put("mail.smtp.starttls.enable", "true");
-            newSession = Session.getInstance(systemProperties, new Authenticator() {
-                @Override
-                protected PasswordAuthentication getPasswordAuthentication() {
-                    return new PasswordAuthentication("manikantakallakuri143@gmail.com", "txfl bqiy eqcj jbby");
-                }
-            });
-
-            String subject = "Event Invitation";
-            String body = "You have been invited to the event, location: University of Leicester!";
-            MimeMessage mimeMessage = new MimeMessage(newSession);
-            mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(sponserEmail));
-            mimeMessage.setSubject(subject);
-            MimeBodyPart bodyPart = new MimeBodyPart();
-            bodyPart.setContent(body, "text/html");
-            MimeMultipart multiPart = new MimeMultipart();
-            multiPart.addBodyPart(bodyPart);
-            mimeMessage.setContent(multiPart);
-
-            String fromEmail = "manikantakallakuri143@gmail.com";
-            String emailHost = "smtp.gmail.com";
-            Transport transport = newSession.getTransport("smtp");
-            transport.connect(emailHost, fromEmail, "txfl bqiy eqcj jbby");
-            transport.sendMessage(mimeMessage, mimeMessage.getAllRecipients());
-            transport.close();
+     // send email logic
+    	Properties props = new Properties();
+    	//Configuring properties for gmail
+    	//If you are not using gmail you may need to change the values
+    	 props.put("mail.smtp.host", "smtp.gmail.com");
+    	 props.put("mail.smtp.port", "587");
+    	 props.put("mail.smtp.auth", "true");
+    	 props.put("mail.smtp.starttls.enable", "true");
+    	 props.put("mail.smtp.ssl.trust", "smtp.gmail.com");     
+    	//Creating a new session
+    	Session session = Session.getDefaultInstance(props,
+    	        new javax.mail.Authenticator() {
+    	            //Authenticating the password
+    	            protected PasswordAuthentication getPasswordAuthentication() {
+    	                return new PasswordAuthentication("manikantakallakuri143@gmail.com", "txfl bqiy eqcj jbby");
+    	            }
+    	        });
+    	try {
+    	    //Creating MimeMessage object
+    	    MimeMessage mm = new MimeMessage(session);
+    	    //Setting sender address
+    	    mm.setFrom(new InternetAddress("manikantakallakuri143@gmail.com"));
+    	    //Adding receiver
+    	    mm.addRecipient(Message.RecipientType.TO, new InternetAddress(sponserEmail));
+    	    //Adding subject
+    	    mm.setSubject("Event Invitation");
+    	    //Adding message
+    	    mm.setText("You have been invited to the event");           
+    	    //Sending email
+    	    Transport.send(mm);
             System.out.println("Invitation to sponsor has been sent successfully");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
+    	} catch (MessagingException e) {
+    	    e.printStackTrace();
+    	}
         return true;
     }
 
     public boolean sendUpdatetoSpeaker(String speakerEmail, String message) {
-        try {
-            // send email logic
-            Session newSession = null;
-            Properties systemProperties = System.getProperties();
-            systemProperties.put("mail.smtp.port", "587");
-            systemProperties.put("mail.smtp.auth", "true");
-            systemProperties.put("mail.smtp.starttls.enable", "true");
-            newSession = Session.getInstance(systemProperties, new Authenticator() {
-                @Override
-                protected PasswordAuthentication getPasswordAuthentication() {
-                    return new PasswordAuthentication("manikantakallakuri143@gmail.com", "txfl bqiy eqcj jbby");
-                }
-            });
+     // send email logic
+    	Properties props = new Properties();
+    	//Configuring properties for gmail
+    	//If you are not using gmail you may need to change the values
+    	 props.put("mail.smtp.host", "smtp.gmail.com");
+    	 props.put("mail.smtp.port", "587");
+    	 props.put("mail.smtp.auth", "true");
+    	 props.put("mail.smtp.starttls.enable", "true");
+    	 props.put("mail.smtp.ssl.trust", "smtp.gmail.com");     
+    	//Creating a new session
+    	Session session = Session.getDefaultInstance(props,
+    	        new javax.mail.Authenticator() {
+    	            //Authenticating the password
+    	            protected PasswordAuthentication getPasswordAuthentication() {
+    	                return new PasswordAuthentication("manikantakallakuri143@gmail.com", "txfl bqiy eqcj jbby");
+    	            }
+    	        });
+    	try {
+    	    //Creating MimeMessage object
+    	    MimeMessage mm = new MimeMessage(session);
+    	    //Setting sender address
+    	    mm.setFrom(new InternetAddress("manikantakallakuri143@gmail.com"));
+    	    //Adding receiver
+    	    mm.addRecipient(Message.RecipientType.TO, new InternetAddress(speakerEmail));
+    	    //Adding subject
+    	    mm.setSubject("Update from organizer");
+    	    //Adding message
+    	    mm.setText(message);           
+    	    //Sending email
+    	    Transport.send(mm);
+            System.out.println("Update to attendee has been sent successfully");
 
-            String subject = "Update from organizer";
-            String body = message;
-            MimeMessage mimeMessage = new MimeMessage(newSession);
-            mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(speakerEmail));
-            mimeMessage.setSubject(subject);
-            MimeBodyPart bodyPart = new MimeBodyPart();
-            bodyPart.setContent(body, "text/html");
-            MimeMultipart multiPart = new MimeMultipart();
-            multiPart.addBodyPart(bodyPart);
-            mimeMessage.setContent(multiPart);
-
-            String fromEmail = "manikantakallakuri143@gmail.com";
-            String emailHost = "smtp.gmail.com";
-            Transport transport = newSession.getTransport("smtp");
-            transport.connect(emailHost, fromEmail, "txfl bqiy eqcj jbby");
-            transport.sendMessage(mimeMessage, mimeMessage.getAllRecipients());
-            transport.close();
-            System.out.println("Update to speaker has been sent successfully");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    	} catch (MessagingException e) {
+    	    e.printStackTrace();
+    	}
         return true;
     }
 
     public boolean sendUpdatetoAttendee(String attendeeMail, String message) {
-        try {
             // send email logic
-            Session newSession = null;
-            Properties systemProperties = System.getProperties();
-            systemProperties.put("mail.smtp.port", "587");
-            systemProperties.put("mail.smtp.auth", "true");
-            systemProperties.put("mail.smtp.starttls.enable", "true");
-            newSession = Session.getInstance(systemProperties, new Authenticator() {
-                @Override
-                protected PasswordAuthentication getPasswordAuthentication() {
-                    return new PasswordAuthentication("manikantakallakuri143@gmail.com", "txfl bqiy eqcj jbby");
-                }
-            });
+        	Properties props = new Properties();
+        	//Configuring properties for gmail
+        	//If you are not using gmail you may need to change the values
+        	 props.put("mail.smtp.host", "smtp.gmail.com");
+        	 props.put("mail.smtp.port", "587");
+        	 props.put("mail.smtp.auth", "true");
+        	 props.put("mail.smtp.starttls.enable", "true");
+        	 props.put("mail.smtp.ssl.trust", "smtp.gmail.com");     
+        	//Creating a new session
+        	Session session = Session.getDefaultInstance(props,
+        	        new javax.mail.Authenticator() {
+        	            //Authenticating the password
+        	            protected PasswordAuthentication getPasswordAuthentication() {
+        	                return new PasswordAuthentication("manikantakallakuri143@gmail.com", "txfl bqiy eqcj jbby");
+        	            }
+        	        });
+        	try {
+        	    //Creating MimeMessage object
+        	    MimeMessage mm = new MimeMessage(session);
+        	    //Setting sender address
+        	    mm.setFrom(new InternetAddress("manikantakallakuri143@gmail.com"));
+        	    //Adding receiver
+        	    mm.addRecipient(Message.RecipientType.TO, new InternetAddress(attendeeMail));
+        	    //Adding subject
+        	    mm.setSubject("Update from Organizer");
+        	    //Adding message
+        	    mm.setText(message);           
+        	    //Sending email
+        	    Transport.send(mm);
+                System.out.println("Update to attendee has been sent successfully");
 
-            String subject = "Update from organizer";
-            String body = message;
-            MimeMessage mimeMessage = new MimeMessage(newSession);
-            mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(attendeeMail));
-            mimeMessage.setSubject(subject);
-            MimeBodyPart bodyPart = new MimeBodyPart();
-            bodyPart.setContent(body, "text/html");
-            MimeMultipart multiPart = new MimeMultipart();
-            multiPart.addBodyPart(bodyPart);
-            mimeMessage.setContent(multiPart);
-
-            String fromEmail = "manikantakallakuri143@gmail.com";
-            String emailHost = "smtp.gmail.com";
-            Transport transport = newSession.getTransport("smtp");
-            transport.connect(emailHost, fromEmail, "txfl bqiy eqcj jbby");
-            transport.sendMessage(mimeMessage, mimeMessage.getAllRecipients());
-            transport.close();
-            System.out.println("Update to attendee has been sent successfully");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        	} catch (MessagingException e) {
+        	    e.printStackTrace();
+        	}
         return true;
     }
 
@@ -526,41 +504,41 @@ public class Organizer {
     private static void sendEmailsToAttendees(List<String> attendeeEmails, String sessionLink) {
         for (String email : attendeeEmails) {
             // Implement logic to send the virtual session link to each email
-            try {
-                // send email logic
-                Session newSession = null;
-                Properties systemProperties = System.getProperties();
-                systemProperties.put("mail.smtp.port", "587");
-                systemProperties.put("mail.smtp.auth", "true");
-                systemProperties.put("mail.smtp.starttls.enable", "true");
-                newSession = Session.getInstance(systemProperties, new Authenticator() {
-                    @Override
-                    protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication("manikantakallakuri143@gmail.com", "txfl bqiy eqcj jbby");
-                    }
-                });
-
-                String subject = "Virtual Session Link";
-                String body = "Join the session using the link: " + sessionLink;
-                MimeMessage mimeMessage = new MimeMessage(newSession);
-                mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
-                mimeMessage.setSubject(subject);
-                MimeBodyPart bodyPart = new MimeBodyPart();
-                bodyPart.setContent(body, "text/html");
-                MimeMultipart multiPart = new MimeMultipart();
-                multiPart.addBodyPart(bodyPart);
-                mimeMessage.setContent(multiPart);
-
-                String fromEmail = "manikantakallakuri143@gmail.com";
-                String emailHost = "smtp.gmail.com";
-                Transport transport = newSession.getTransport("smtp");
-                transport.connect(emailHost, fromEmail, "txfl bqiy eqcj jbby");
-                transport.sendMessage(mimeMessage, mimeMessage.getAllRecipients());
-                transport.close();
+        	// send email logic
+        	Properties props = new Properties();
+        	//Configuring properties for gmail
+        	//If you are not using gmail you may need to change the values
+        	 props.put("mail.smtp.host", "smtp.gmail.com");
+        	 props.put("mail.smtp.port", "587");
+        	 props.put("mail.smtp.auth", "true");
+        	 props.put("mail.smtp.starttls.enable", "true");
+        	 props.put("mail.smtp.ssl.trust", "smtp.gmail.com");     
+        	//Creating a new session
+        	Session session = Session.getDefaultInstance(props,
+        	        new javax.mail.Authenticator() {
+        	            //Authenticating the password
+        	            protected PasswordAuthentication getPasswordAuthentication() {
+        	                return new PasswordAuthentication("manikantakallakuri143@gmail.com", "txfl bqiy eqcj jbby");
+        	            }
+        	        });
+        	try {
+        	    //Creating MimeMessage object
+        	    MimeMessage mm = new MimeMessage(session);
+        	    //Setting sender address
+        	    mm.setFrom(new InternetAddress("manikantakallakuri143@gmail.com"));
+        	    //Adding receiver
+        	    mm.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
+        	    //Adding subject
+        	    mm.setSubject("Virtual Session Link");
+        	    //Adding message
+        	    mm.setText("Join the session using the link: " + sessionLink);           
+        	    //Sending email
+        	    Transport.send(mm);
                 System.out.println("Session link sent to " + email);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+
+        	} catch (MessagingException e) {
+        	    e.printStackTrace();
+        	}
         }
     }
 
@@ -586,48 +564,49 @@ public class Organizer {
     }
 
     public static void sendPaymentLink(String email, double amount, String purpose) {
-        // Placeholder logic for generating and sending payment links
-        try {
-            // send email logic
-            Session newSession = null;
-            Properties systemProperties = System.getProperties();
-            systemProperties.put("mail.smtp.port", "587");
-            systemProperties.put("mail.smtp.auth", "true");
-            systemProperties.put("mail.smtp.starttls.enable", "true");
-            newSession = Session.getInstance(systemProperties, new Authenticator() {
-                @Override
-                protected PasswordAuthentication getPasswordAuthentication() {
-                    return new PasswordAuthentication("manikantakallakuri143@gmail.com", "txfl bqiy eqcj jbby");
-                }
-            });
-
-            String subject = "Conferrence event Payment";
+        //Placeholder logic for generating and sending payment links
+        Properties props = new Properties();
+    	//Configuring properties for gmail
+    	//If you are not using gmail you may need to change the values
+    	 props.put("mail.smtp.host", "smtp.gmail.com");
+    	 props.put("mail.smtp.port", "587");
+    	 props.put("mail.smtp.auth", "true");
+    	 props.put("mail.smtp.starttls.enable", "true");
+    	 props.put("mail.smtp.ssl.trust", "smtp.gmail.com");     
+    	//Creating a new session
+    	Session session = Session.getDefaultInstance(props,
+    	        new javax.mail.Authenticator() {
+    	            //Authenticating the password
+    	            protected PasswordAuthentication getPasswordAuthentication() {
+    	                return new PasswordAuthentication("manikantakallakuri143@gmail.com", "txfl bqiy eqcj jbby");
+    	            }
+    	        });
+    	try {
+    	    //Creating MimeMessage object
+    	    MimeMessage mm = new MimeMessage(session);
+    	    //Setting sender address
+    	    mm.setFrom(new InternetAddress("manikantakallakuri143@gmail.com"));
+    	    //Adding receiver
+    	    mm.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
+    	    //Adding subject
+    	    String subject = "Conferrence event Payment";
             String body = "To: " + email +
                     "    Amount: " + amount + "\n" +
                     "  Purpose: Registration Fee \n" +
                     "    Click on the below link to make payment \n" +
                     "https://example-payment-gateway.com/pay?recipient=" + email +
                     "&amount=" + amount + "&purpose=" + purpose;
-            MimeMessage mimeMessage = new MimeMessage(newSession);
-            mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
-            mimeMessage.setSubject(subject);
-            MimeBodyPart bodyPart = new MimeBodyPart();
-            bodyPart.setContent(body, "text/html");
-            MimeMultipart multiPart = new MimeMultipart();
-            multiPart.addBodyPart(bodyPart);
-            mimeMessage.setContent(multiPart);
-
-            String fromEmail = "manikantakallakuri143@gmail.com";
-            String emailHost = "smtp.gmail.com";
-            Transport transport = newSession.getTransport("smtp");
-            transport.connect(emailHost, fromEmail, "txfl bqiy eqcj jbby");
-            transport.sendMessage(mimeMessage, mimeMessage.getAllRecipients());
-            transport.close();
+    	    mm.setSubject(subject);
+    	    //Adding message
+    	    mm.setText(body);           
+    	    //Sending email
+    	    Transport.send(mm);
             System.out.println(
                     "Payment link sent to " + email + " for amount $" + amount + " (Purpose: " + purpose + ")");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    	} catch (MessagingException e) {
+    	    e.printStackTrace();
+    	}
+        
     }
 
     public boolean generateAttendanceReports() {
@@ -680,7 +659,7 @@ public class Organizer {
 
     public static String generateCertificate(String attendeeName, String conferenceName) {
         // Load HTML template
-        String template = loadHtmlTemplate();
+        String template = loadHtmlTemplate(attendeeName,conferenceName);
 
         // Replace placeholders with actual values
         String certificate = template.replace("[AttendeeName]", attendeeName)
@@ -695,59 +674,60 @@ public class Organizer {
         return certificate;
     }
 
-    public static String loadHtmlTemplate() {
+    public static String loadHtmlTemplate(String attendeeName,String conferenceName) {
         // In a real-world scenario, you might read the template from a file or a
         // database.
         // For simplicity, we'll use a hardcoded template here.
-        return """
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <style>
-                        body {
-                            font-family: 'Arial', sans-serif;
-                            text-align: center;
-                        }
+        
+        String cssStyles = generateCSS(); // Generate CSS styles
 
-                        .certificate {
-                            border: 2px solid #000;
-                            padding: 20px;
-                            max-width: 600px;
-                            margin: 20px auto;
-                        }
+        return "<!DOCTYPE html>\n" +
+            "<html lang=\"en\">\n" +
+            "<head>\n" +
+            "    <meta charset=\"UTF-8\">\n" +
+            "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
+            "    <style>\n" +
+            cssStyles + // Include generated CSS styles
+            "    </style>\n" +
+            "</head>\n" +
+            "<body>\n" +
+            "    <div class=\"certificate\">\n" +
+            "        <div class=\"title\">Certificate of Participation</div>\n" +
+            "        <div class=\"content\">\n" +
+            "            This is to certify that <strong>" + attendeeName + "</strong><br>\n" +
+            "            has actively participated in the <strong>" + conferenceName + "</strong>.\n" +
+            "        </div>\n" +
+            "        <div class=\"signature\">\n" +
+            "            <p>Organizer's Signature</p>\n" +
+            "        </div>\n" +
+            "    </div>\n" +
+            "</body>\n" +
+            "</html>";
+    }
 
-                        .title {
-                            font-size: 24px;
-                            font-weight: bold;
-                            margin-bottom: 20px;
-                        }
-
-                        .content {
-                            font-size: 18px;
-                            margin-bottom: 20px;
-                        }
-
-                        .signature {
-                            margin-top: 30px;
-                        }
-                    </style>
-                </head>
-                <body>
-                    <div class="certificate">
-                        <div class="title">Certificate of Participation</div>
-                        <div class="content">
-                            This is to certify that <strong>[AttendeeName]</strong><br>
-                            has actively participated in the <strong>[ConferenceName]</strong>.
-                        </div>
-                        <div class="signature">
-                            <p>Organizer's Signature</p>
-                        </div>
-                    </div>
-                </body>
-                </html>
-                """;
+    public static String generateCSS() {
+        return "body {\n" +
+            "    font-family: 'Arial', sans-serif;\n" +
+            "    text-align: center;\n" +
+            "}\n" +
+            ".certificate {\n" +
+            "    border: 2px solid #000;\n" +
+            "    padding: 20px;\n" +
+            "    max-width: 600px;\n" +
+            "    margin: 20px auto;\n" +
+            "}\n" +
+            ".title {\n" +
+            "    font-size: 24px;\n" +
+            "    font-weight: bold;\n" +
+            "    margin-bottom: 20px;\n" +
+            "}\n" +
+            ".content {\n" +
+            "    font-size: 18px;\n" +
+            "    margin-bottom: 20px;\n" +
+            "}\n" +
+            ".signature {\n" +
+            "    margin-top: 30px;\n" +
+            "}";
     }
 
     public boolean viewPollingResults() {
