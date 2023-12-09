@@ -216,7 +216,7 @@ class Speaker {
         return true;
     }
 
-    private boolean updatePresentationMaterial(String pdfUrl) {
+    public boolean updatePresentationMaterial(String pdfUrl) {
         if (!Files.exists(Paths.get("presentations.txt"))) {
             createPresentationsFile();
         }
