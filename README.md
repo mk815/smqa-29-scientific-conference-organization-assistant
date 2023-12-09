@@ -38,9 +38,9 @@
   9. SG2-14: Show Attendees and Speakers
      - list the all number of speaker's username and attendee's username along with count will be displayed
   10. SG2-22: Graphical representation of Attendees
-     - a pie chart contains attendees count will be display in a new window
+      - a pie chart contains attendees count will be display in a new window
   11. SG2-17: Graphical representation of speakers & Attendees
-     - a bar chart contains at attendees count ans speaker count will be displayed in a new window
+      - a bar chart contains at attendees count ans speaker count will be displayed in a new window
   12. SG2-16: Send updates to Attendee
-     -  you have to input attendee email-id and update message
-     -  attendee will get email from 'manikantakallakuri143@gmail.com'
+      - you have to input attendee email-id and update message
+      - attendee will get email from 'manikantakallakuri143@gmail.com'
