@@ -1,0 +1,128 @@
+
+Test Case 1  		(Key = 1.1.1.1.1.)
+   username         :  s1
+   password         :  1234
+   title            :  Java Programming
+   havepresentation :  yes
+   pdfurl           :  validpdfurl
+
+
+Test Case 2  		(Key = 1.1.1.1.2.)
+   username         :  s1
+   password         :  1234
+   title            :  Java Programming
+   havepresentation :  yes
+   pdfurl           :  invalidpdfurl
+
+
+Test Case 3  		(Key = 1.1.1.2.1.)
+   username         :  s1
+   password         :  1234
+   title            :  Java Programming
+   havepresentation :  no
+   pdfurl           :  validpdfurl
+
+
+Test Case 4  		(Key = 1.1.1.2.2.)
+   username         :  s1
+   password         :  1234
+   title            :  Java Programming
+   havepresentation :  no
+   pdfurl           :  invalidpdfurl
+
+
+Test Case 5  		(Key = 1.2.1.1.1.)
+   username         :  s1
+   password         :  in1234
+   title            :  Java Programming
+   havepresentation :  yes
+   pdfurl           :  validpdfurl
+
+
+Test Case 6  		(Key = 1.2.1.1.2.)
+   username         :  s1
+   password         :  in1234
+   title            :  Java Programming
+   havepresentation :  yes
+   pdfurl           :  invalidpdfurl
+
+
+Test Case 7  		(Key = 1.2.1.2.1.)
+   username         :  s1
+   password         :  in1234
+   title            :  Java Programming
+   havepresentation :  no
+   pdfurl           :  validpdfurl
+
+
+Test Case 8  		(Key = 1.2.1.2.2.)
+   username         :  s1
+   password         :  in1234
+   title            :  Java Programming
+   havepresentation :  no
+   pdfurl           :  invalidpdfurl
+
+
+Test Case 9  		(Key = 2.1.1.1.1.)
+   username         :  ins1
+   password         :  1234
+   title            :  Java Programming
+   havepresentation :  yes
+   pdfurl           :  validpdfurl
+
+
+Test Case 10 		(Key = 2.1.1.1.2.)
+   username         :  ins1
+   password         :  1234
+   title            :  Java Programming
+   havepresentation :  yes
+   pdfurl           :  invalidpdfurl
+
+
+Test Case 11 		(Key = 2.1.1.2.1.)
+   username         :  ins1
+   password         :  1234
+   title            :  Java Programming
+   havepresentation :  no
+   pdfurl           :  validpdfurl
+
+
+Test Case 12 		(Key = 2.1.1.2.2.)
+   username         :  ins1
+   password         :  1234
+   title            :  Java Programming
+   havepresentation :  no
+   pdfurl           :  invalidpdfurl
+
+
+Test Case 13 		(Key = 2.2.1.1.1.)
+   username         :  ins1
+   password         :  in1234
+   title            :  Java Programming
+   havepresentation :  yes
+   pdfurl           :  validpdfurl
+
+
+Test Case 14 		(Key = 2.2.1.1.2.)
+   username         :  ins1
+   password         :  in1234
+   title            :  Java Programming
+   havepresentation :  yes
+   pdfurl           :  invalidpdfurl
+
+
+Test Case 15 		(Key = 2.2.1.2.1.)
+   username         :  ins1
+   password         :  in1234
+   title            :  Java Programming
+   havepresentation :  no
+   pdfurl           :  validpdfurl
+
+
+Test Case 16 		(Key = 2.2.1.2.2.)
+   username         :  ins1
+   password         :  in1234
+   title            :  Java Programming
+   havepresentation :  no
+   pdfurl           :  invalidpdfurl
+

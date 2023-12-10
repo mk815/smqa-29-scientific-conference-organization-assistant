@@ -1,0 +1,19 @@
+# Input username
+username:
+ s1.
+ ins1. #error
+# Input password
+password:
+ 1234.
+ in1234. #error
+# Input title
+title:
+ Java Programming.
+# Input presentation yes or no
+havepresentation:
+ yes.
+ no.
+# Input pdf url
+pdfurl:
+ validpdfurl.
+ invalidpdfurl. #error
