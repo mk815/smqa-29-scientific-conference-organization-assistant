@@ -10,7 +10,8 @@
   3. activation-1.1.jar: The activation.jar file contains the JavaBeans Activation Framework (JAF), which provides a set of standard interfaces and classes for integrating and managing MIME data types.
   4. randoop-all-4.3.2.jar: Randoop is an automatic test generation tool for Java. This JAR file contains the Randoop library, which generates unit tests for Java code based on runtime behavior analysis.
      Create environment variable RANDOOP_JAR and the path should be where the randoop-all-4.3.2.jar has been located.
-     
+  
+  - TSLgenerator-win8.exe has been provided in the repository to use TSLgenerator
   - These files has been provided in this repository.
   - When using these JAR files in the project, ensure that they are included in your project's classpath or build path so that your code can access the classes and methods provided by these libraries.
   - Go to project -> properties -> Java Build Path -> Libraries -> Classpath -> Add External JARs -> Apply
@@ -147,7 +148,17 @@
           - In the PIT Summary tab, Click on the default link. You'll see the mutation coverage results for the Session.java file.
   4. Specification based testing
      - **Steps**
-       1. Check Code Coverage:
+       1. Prepare Test Cases:
+          - Test cases are written in a file named TestFramesForSpeakerClass.txt.
+       2. Download and Install TSL Generator Tool:
+          - Download the TSLgenerator-win8.exe tool that has been provided in this repository.
+          - Ensure that the tool is compatible with your operating system.
+       3. Generate Test Frames:
+          - Open the command prompt or terminal.
+       4. Execute the TSL Generator Tool:
+          - Use the following command to generate test frames from the TestFramesForSpeakerClass.txt file.
+          - TSLgenerator-win8.exe -c TestFramesForSpeakerClass.txt
+       5. Check Code Coverage:
           - Right-click on the SpecificationBasedTesting.java test class in the Package Explorer.
           - Select "Coverage As" -> "JUnit Test."
           - In the Coverage tab, analyze the results to see the code coverage specifically related to the Speaker.java file.
