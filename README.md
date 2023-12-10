@@ -2,7 +2,7 @@
  smqa-29-scientific-conference-organization-assistant
 # Installation & Set up
   To run this project, you need to have Java Development Kit (JDK) version 14.0.2 installed on your machine. You can download and install Java JDK from the official Oracle website.
-  eclipseIDE 2023-12 has been used
+  eclipseIDE 2023-12 has been used and runs in Windows operating system
   
   - The below libraries are often added to Java projects as dependencies to extend functionalities or support specific features.
   1. javax.mail.jar: This JAR file contains the JavaMail API, which provides the ability to send, receive, and manipulate email messages using Java.
@@ -15,6 +15,9 @@
   - These files has been provided in this repository.
   - When using these JAR files in the project, ensure that they are included in your project's classpath or build path so that your code can access the classes and methods provided by these libraries.
   - Go to project -> properties -> Java Build Path -> Libraries -> Classpath -> Add External JARs -> Apply
+# Run project
+ 1. In eclipse ide, navigate to the project and right click on Main.java then run as Java Application.
+ 2. If you are facing any error first try to delete all existing class files using the command del *.class in the command prompt and again follow step 1
 # User stories development execution
   1. SG2-2: Create user Organizer
      - you have to select the option -> 2. Signup as Organizer
